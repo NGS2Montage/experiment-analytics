@@ -1,0 +1,7 @@
+id,initialLetters,PlayerID,numberOfWords, numberOfLetters, ScrabbleScore,numberOfRequest,numberOfReplies,Neighbor1,RequestedLettersN1,ReceivedLettersN1,Neighbor2,RequestedLettersN2,ReceivedLettersN2
+jrseoprn,DIT,0yrslh0h,0,0,0,6,0,o280qibn,PNU,,qdr7cfdx,AEL,
+jrseoprn,ANE,6myrlpvi,3,12,14,4,4,k0q2x5lr,RI,RI,h0wi0jq1,CS,CS
+jrseoprn,CSN,h0wi0jq1,11,40,65,6,6,y63y0udw,OAH,OAH,6myrlpvi,AEN,AEN
+jrseoprn,RSI,k0q2x5lr,7,27,27,3,2,6myrlpvi,EAN,EA,,,
+jrseoprn,EAL,qdr7cfdx,17,67,78,5,5,0yrslh0h,TDI,TDI,k0q2x5lr,RS,RS
+jrseoprn,OAH,y63y0udw,6,20,31,5,3,h0wi0jq1,SNC,SNC,o280qibn,UP,

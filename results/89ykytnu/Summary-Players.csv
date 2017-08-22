@@ -1,0 +1,10 @@
+id,initialLetters,PlayerID,numberOfWords, numberOfLetters, ScrabbleScore,numberOfRequest,numberOfReplies,Neighbor1,RequestedLettersN1,ReceivedLettersN1,Neighbor2,RequestedLettersN2,ReceivedLettersN2
+89ykytnu,EUT,0g1vpmuv,45,204,254,5,5,4ft3yddt,SA,SA,v7hqx6y9,TBI,TBI
+89ykytnu,SAT,4ft3yddt,14,57,69,5,5,dw7sds69,EC,EC,0g1vpmuv,UET,UET
+89ykytnu,SKN,b3bzjv7x,13,48,71,6,3,z5lhq79j,ERD,ERD,8n9puq6e,STR,
+89ykytnu,QBL,bica5cnd,0,0,0,6,0,h9em0uts,EIH,,e8p2bgna,SLE,
+89ykytnu,ECT,dw7sds69,30,157,210,4,4,z5lhq79j,RD,RD,4ft3yddt,SA,SA
+89ykytnu,EHI,h9em0uts,2,6,11,6,3,dfpx5x7p,IDR,,bica5cnd,LBQ,LBQ
+89ykytnu,NEO,peh9x2qq,16,54,70,5,3,v7hqx6y9,BTI,BTI,e8p2bgna,LS,
+89ykytnu,BTI,v7hqx6y9,27,91,119,4,4,peh9x2qq,EON,EON,0g1vpmuv,U,U
+89ykytnu,RDE,z5lhq79j,30,121,171,6,6,b3bzjv7x,SKN,SKN,dw7sds69,ECT,ECT

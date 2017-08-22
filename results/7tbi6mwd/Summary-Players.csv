@@ -1,0 +1,6 @@
+id,initialLetters,PlayerID,numberOfWords, numberOfLetters, ScrabbleScore,numberOfRequest,numberOfReplies,Neighbor1,RequestedLettersN1,ReceivedLettersN1,Neighbor2,RequestedLettersN2,ReceivedLettersN2
+7tbi6mwd,IWD,1wzdpuan,11,37,53,6,6,r57fong8,LRI,LRI,j1okbscz,RNL,RNL
+7tbi6mwd,SGC,6uuzuh53,0,0,0,3,3,j1okbscz,RL,RL,d1c070ko,C,C
+7tbi6mwd,MCN,d1c070ko,8,27,33,6,6,6uuzuh53,SCG,SCG,r57fong8,IRL,IRL
+7tbi6mwd,RNL,j1okbscz,11,44,66,6,6,1wzdpuan,IDW,IDW,6uuzuh53,CSG,CSG
+7tbi6mwd,LIR,r57fong8,16,57,85,5,5,1wzdpuan,DW,DW,d1c070ko,MNC,MNC

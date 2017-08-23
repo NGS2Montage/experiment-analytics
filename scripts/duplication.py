@@ -245,7 +245,7 @@ def main():
     #for row in allplayerwords:
     	#print(row)
     fig, ax = plt.subplots(figsize=(25, 15))
-    cycol=cycle('bgrcmky')
+    cycol=cycle('bgrwcmky')
     for key,items in groupby(allplayerwords,operator.itemgetter(0)):
     	labelx='Duplication Analysis'
     	x=[]
@@ -300,7 +300,7 @@ def main():
     						row[1]=row[1]+1
     						present=1
     				if present==0:
-    					coord.append([lenword,1])
+    					coord.append([lenword,0])
     	for row in coord:
     		#print(row)
     		x.append(row[0])
@@ -415,7 +415,7 @@ def main():
     						row[1]=row[1]+1
     						present=1
     				if present==0:
-    					coord.append([lenword,1])
+    					coord.append([lenword,0])
     		for row in coord:
     			#print(row)
     			x.append(row[0])

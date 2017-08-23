@@ -58,7 +58,8 @@ def getRequestsSent(reader, player):
     return count
 
 ## ------------------------------
-def getRequestsReceived(reader,player):
+##def getRequestsReceived(reader,player):
+def getRepliesReceived(reader,player):
     """
     	ireader: csv file
         session_code: the session_code we want the data from.
@@ -72,7 +73,8 @@ def getRequestsReceived(reader,player):
     return count,score
 
 ## ------------------------------
-def getRepliesReceived(reader, player):
+##def getRepliesReceived(reader, player):
+def getRequestsReceived(reader,player):
     """
     	ireader: csv file
         session_code: the session_code we want the data from.
@@ -120,6 +122,10 @@ def main():
     
     startTime = datetime.now()
     ltran = sys.argv[1]
+    #twords = sys.argv[2]
+    #ins = sys.argv[3]
+    #anag = sys.argv[4]
+    #pg = sys.argv[5]
     ### Command line arguments.
     #session = sys.argv[1]
     #timeend = sys.argv[2]
@@ -318,7 +324,7 @@ def main():
     next(difi_reader)
     sessionb=''
     numsessions=1
-    allsessions='Color by # of Requests Received'
+    allsessions='Color by # of Replies Received'
     fig, ax = plt.subplots(figsize=(25, 15))
     points=len(list(difi_reader))
     tdifi.seek(0)
@@ -326,7 +332,7 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numrequest,score=getRequestsReceived(ltran_reader,row[2])
+    	numrequest,score=getRepliesReceived(ltran_reader,row[2])
     	if session!=sessionb and sessionb!='' or idx==points-1:
     		if idx==points-1:
     			x.append(row[4])			
@@ -401,7 +407,7 @@ def main():
     axes.set_xlim([-120,145])
     #axes.margins(0.05)
     plt.plot( [-120,145],[-120,145] ,color='black')
-    plt.savefig(os.getcwd()+'/difi/all/d1-d2ColorRequestsReceived.png')
+    plt.savefig(os.getcwd()+'/difi/all/d1-d2ColorRepliesReceived.png')
     plt.cla()
     plt.close(fig)
     
@@ -423,8 +429,8 @@ def main():
     plt.xlabel('DIFI 1',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
-    plt.title('Color by #Requests received/#Requests sent',fontsize=45)
-    plt.savefig(os.getcwd()+'/difi/all/d1-d2ColorFractionRequests.png', format='png')
+    plt.title('Color by #Replies received/#Requests sent',fontsize=45)
+    plt.savefig(os.getcwd()+'/difi/all/d1-d2ColorFractionRequestsSent.png', format='png')
     plt.cla()
     plt.close(fig)
     
@@ -524,7 +530,7 @@ def main():
     next(difi_reader)
     sessionb=''
     numsessions=1
-    allsessions='Color by # of Replies Received'
+    allsessions='Color by # of Requests Received'
     fig, ax = plt.subplots(figsize=(25, 15))
     points=len(list(difi_reader))
     tdifi.seek(0)
@@ -532,7 +538,7 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numreplies=getRepliesReceived(ltran_reader,row[2])
+    	numreplies=getRequestsReceived(ltran_reader,row[2])
     	if session!=sessionb and sessionb!='' or idx==points-1:
     		if idx==points-1:
     			x.append(row[4])
@@ -598,7 +604,7 @@ def main():
     axes.set_xlim([-120,145])
     #axes.margins(0.05)
     plt.plot( [-120,145],[-120,145] ,color='black')
-    plt.savefig(os.getcwd()+'/difi/all/d1-d2ColorRepliesReceived.png')
+    plt.savefig(os.getcwd()+'/difi/all/d1-d2ColorRequestsReceived.png')
     plt.cla()
     plt.close(fig)
     
@@ -620,8 +626,8 @@ def main():
     plt.xlabel('DIFI 1',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
-    plt.title('Color by #Replies received/#Replies sent',fontsize=45)
-    plt.savefig(os.getcwd()+'/difi/all/d1-d2ColorFractionReplies.png', format='png')
+    plt.title('Color by #Replies sent/#Requests Received',fontsize=45)
+    plt.savefig(os.getcwd()+'/difi/all/d1-d2ColorFractionRequestsReceived.png', format='png')
     plt.cla()
     plt.close(fig)
     

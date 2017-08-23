@@ -50,7 +50,7 @@ SCORES = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2,
           "x": 8, "z": 10}
      
 ## ------------------------------
-def getRequests(reader, player):
+def getRequestsSent(reader, player):
     """
     	ireader: csv file
         session_code: the session_code we want the data from.
@@ -62,7 +62,7 @@ def getRequests(reader, player):
     return count
 
 ## ------------------------------
-def getRequestsBack(reader,player):
+def getRepliesReceived(reader,player):
     """
     	ireader: csv file
         session_code: the session_code we want the data from.
@@ -76,7 +76,7 @@ def getRequestsBack(reader,player):
     return count,score
 
 ## ------------------------------
-def getReplies(reader, player):
+def getRequestsReceived(reader, player):
     """
     	ireader: csv file
         session_code: the session_code we want the data from.
@@ -88,7 +88,7 @@ def getReplies(reader, player):
     return count
     
 ## ------------------------------
-def getRepliesBack(reader, player):
+def getRepliesSent(reader, player):
     """
     	ireader: csv file
         session_code: the session_code we want the data from.
@@ -125,6 +125,10 @@ def main():
     
     ltran = sys.argv[1]
     uletter = sys.argv[2]
+    #twords = sys.argv[3]
+    #ins = sys.argv[4]
+    #anag = sys.argv[5]
+    #pg = sys.argv[6]
     ### Command line arguments.
     #session = sys.argv[1]
     #timeend = sys.argv[2]
@@ -198,7 +202,7 @@ def main():
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
     axes = plt.gca()
-    axes.set_ylim([-120,145])
+    axes.set_ylim([-250,250])
     axes.set_xlim([-5,50])
     #axes.margins(0.05)
     plt.savefig(os.getcwd()+'/difi/all/variousValues/words-d2-d1.png')
@@ -330,7 +334,7 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numrequest=getRequests(ltran_reader,row[2])
+    	numrequest=getRequestsSent(ltran_reader,row[2])
     	if session!=sessionb and sessionb!='' or idx==points-1:
     		#allsessions=allsessions+sessionb+'-'
     		if idx==points-1:
@@ -355,15 +359,15 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('DIFI2-DIFI1',fontsize=35)
-    plt.xlabel('Number of requests per player',fontsize=45)
+    plt.xlabel('Number of requests sent per player',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
     axes = plt.gca()
-    axes.set_ylim([-120,145])
+    axes.set_ylim([-250,250])
     axes.set_xlim([0,7])
     #axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/requests-d2-d1.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/requestsSent-d2-d1.png')
     plt.cla()
     plt.close(fig)
     
@@ -385,7 +389,7 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numrequest=getRequests(ltran_reader,row[2])
+    	numrequest=getRequestsSent(ltran_reader,row[2])
     	if session!=sessionb and sessionb!='' or idx==points-1:
     		#allsessions=allsessions+sessionb+'-'
     		if idx==points-1:
@@ -410,7 +414,7 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('DIFI2',fontsize=35)
-    plt.xlabel('Number of requests per player',fontsize=45)
+    plt.xlabel('Number of requests sent per player',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
@@ -418,7 +422,7 @@ def main():
     axes.set_ylim([-120,145])
     axes.set_xlim([0,7])
     #axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/requests-d2.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/requestsSent-d2.png')
     plt.cla()
     plt.close(fig)
     #####
@@ -440,7 +444,7 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numrequest=getRequests(ltran_reader,row[2])
+    	numrequest=getRequestsSent(ltran_reader,row[2])
     	if session!=sessionb and sessionb!='' or idx==points-1:
     		#allsessions=allsessions+sessionb+'-'
     		if idx==points-1:
@@ -465,7 +469,7 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('PGGC',fontsize=35)
-    plt.xlabel('Number of requests per player',fontsize=45)
+    plt.xlabel('Number of requests sent per player',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
@@ -473,7 +477,7 @@ def main():
     #axes.set_ylim([-5,145])
     #axes.set_xlim([-5,50])
     axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/requests-pggc.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/requestsSent-pggc.png')
     plt.cla()
     plt.close(fig)
 
@@ -496,7 +500,7 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numreplies=getRepliesBack(ltran_reader,row[2])
+    	numreplies=getRepliesSent(ltran_reader,row[2])
     	if session!=sessionb and sessionb!='' or idx==points-1:
     		#allsessions=allsessions+sessionb+'-'
     		if idx==points-1:
@@ -521,15 +525,15 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('DIFI2-DIFI1',fontsize=35)
-    plt.xlabel('Number of replies per player',fontsize=45)
+    plt.xlabel('Number of replies sent per player',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
     axes = plt.gca()
-    axes.set_ylim([-120,145])
+    axes.set_ylim([-250,250])
     axes.set_xlim([0,7])
     #axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/replies-d2-d1.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/repliesSent-d2-d1.png')
     plt.cla()
     plt.close(fig)
     
@@ -551,7 +555,7 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numreplies=getRepliesBack(ltran_reader,row[2])
+    	numreplies=getRepliesSent(ltran_reader,row[2])
     	if session!=sessionb and sessionb!='' or idx==points-1:
     		#allsessions=allsessions+sessionb+'-'
     		if idx==points-1:
@@ -576,7 +580,7 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('DIFI2',fontsize=35)
-    plt.xlabel('Number of replies per player',fontsize=45)
+    plt.xlabel('Number of replies sent per player',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
@@ -584,7 +588,7 @@ def main():
     axes.set_ylim([-120,145])
     axes.set_xlim([0,7])
     #axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/replies-d2.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/repliesSent-d2.png')
     plt.cla()
     plt.close(fig)
     #####
@@ -606,7 +610,7 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numreplies=getRepliesBack(ltran_reader,row[2])
+    	numreplies=getRepliesSent(ltran_reader,row[2])
     	if session!=sessionb and sessionb!='' or idx==points-1:
     		#allsessions=allsessions+sessionb+'-'
     		if idx==points-1:
@@ -631,7 +635,7 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('PGGC',fontsize=35)
-    plt.xlabel('Number of replies per player',fontsize=45)
+    plt.xlabel('Number of replies sent per player',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
@@ -639,7 +643,7 @@ def main():
     #axes.set_ylim([-5,145])
     #axes.set_xlim([-5,50])
     axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/replies-pggc.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/repliesSent-pggc.png')
     plt.cla()
     plt.close(fig)
 
@@ -662,9 +666,9 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numrequest=getRequests(ltran_reader,row[2])
+    	numrequest=getRequestsSent(ltran_reader,row[2])
     	letter_tran.seek(0)
-    	numrequestBack,score=getRequestsBack(ltran_reader,row[2])
+    	numrequestBack,score=getRepliesReceived(ltran_reader,row[2])
     	if numrequest==0:
     		fraction=0
     	else:
@@ -693,15 +697,15 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('DIFI2-DIFI1',fontsize=35)
-    plt.xlabel('Fraction of letter requests per player',fontsize=45)
+    plt.xlabel('replies received/requests sent',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
     axes = plt.gca()
-    axes.set_ylim([-120,145])
+    axes.set_ylim([-250,250])
     axes.set_xlim([-0.1,1.1])
     #axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/fractionRequests-d2-d1.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/fractionRequestsSent-d2-d1.png')
     plt.cla()
     plt.close(fig)
     
@@ -723,9 +727,9 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numrequest=getRequests(ltran_reader,row[2])
+    	numrequest=getRequestsSent(ltran_reader,row[2])
     	letter_tran.seek(0)
-    	numrequestBack,score=getRequestsBack(ltran_reader,row[2])
+    	numrequestBack,score=getRepliesReceived(ltran_reader,row[2])
     	if numrequest==0:
     		fraction=0
     	else:
@@ -754,7 +758,7 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('DIFI2',fontsize=35)
-    plt.xlabel('Fraction of letter requests per player',fontsize=45)
+    plt.xlabel('replies received/requests sent',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
@@ -762,7 +766,7 @@ def main():
     axes.set_ylim([-120,145])
     axes.set_xlim([-0.1,1.1])
     #axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/fractionRequests-d2.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/fractionRequestsSent-d2.png')
     plt.cla()
     plt.close(fig)
     #####
@@ -784,9 +788,9 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numrequest=getRequests(ltran_reader,row[2])
+    	numrequest=getRequestsSent(ltran_reader,row[2])
     	letter_tran.seek(0)
-    	numrequestBack,score=getRequestsBack(ltran_reader,row[2])
+    	numrequestBack,score=getRepliesReceived(ltran_reader,row[2])
     	if numrequest==0:
     		fraction=0
     	else:
@@ -815,7 +819,7 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('PGGC',fontsize=35)
-    plt.xlabel('Fraction of letter requests per player',fontsize=45)
+    plt.xlabel('replies received/requests sent',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
@@ -823,7 +827,7 @@ def main():
     #axes.set_ylim([-5,145])
     #axes.set_xlim([-5,50])
     axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/fractionRequests-pggc.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/fractionRequestsSent-pggc.png')
     plt.cla()
     plt.close(fig)
     
@@ -846,9 +850,9 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numreplies=getReplies(ltran_reader,row[2])
+    	numreplies=getRequestsReceived(ltran_reader,row[2])
     	letter_tran.seek(0)
-    	numrepliesBack=getRepliesBack(ltran_reader,row[2])
+    	numrepliesBack=getRepliesSent(ltran_reader,row[2])
     	if numreplies==0:
     		fraction=0
     	else:
@@ -877,15 +881,15 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('DIFI2-DIFI1',fontsize=35)
-    plt.xlabel('Fraction of letter replies per player',fontsize=45)
+    plt.xlabel('replies sent/requests received',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
     axes = plt.gca()
-    axes.set_ylim([-120,145])
+    axes.set_ylim([-250,250])
     axes.set_xlim([-0.1,1.1])
     #axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/FractionReplies-d2-d1.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/FractionRequestsReceived-d2-d1.png')
     plt.cla()
     plt.close(fig)
     
@@ -907,9 +911,9 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numreplies=getReplies(ltran_reader,row[2])
+    	numreplies=getRequestsReceived(ltran_reader,row[2])
     	letter_tran.seek(0)
-    	numrepliesBack=getRepliesBack(ltran_reader,row[2])
+    	numrepliesBack=getRepliesSent(ltran_reader,row[2])
     	if numreplies==0:
     		fraction=0
     	else:
@@ -938,7 +942,7 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('DIFI2',fontsize=35)
-    plt.xlabel('Fraction of reletter replies per player',fontsize=45)
+    plt.xlabel('replies sent/requests received',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
@@ -946,7 +950,7 @@ def main():
     axes.set_ylim([-120,145])
     axes.set_xlim([-0.1,1.1])
     #axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/fractionReplies-d2.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/fractionRequestsReceived-d2.png')
     plt.cla()
     plt.close(fig)
     #####
@@ -968,9 +972,9 @@ def main():
     for idx,row in enumerate(difi_reader):
     	session=row[0]
     	letter_tran.seek(0)
-    	numreplies=getReplies(ltran_reader,row[2])
+    	numreplies=getRequestsReceived(ltran_reader,row[2])
     	letter_tran.seek(0)
-    	numrepliesBack=getRepliesBack(ltran_reader,row[2])
+    	numrepliesBack=getRepliesSent(ltran_reader,row[2])
     	if numreplies==0:
     		fraction=0
     	else:
@@ -999,7 +1003,7 @@ def main():
     	
     legend=ax.legend(loc='upper left',prop={'size':18}, bbox_to_anchor=(1, 0.5))
     plt.ylabel('PGGC',fontsize=35)
-    plt.xlabel('Fraction of letter replies per player',fontsize=45)
+    plt.xlabel('replies sent/requests received',fontsize=45)
     plt.xticks(fontsize=45)
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
@@ -1007,7 +1011,7 @@ def main():
     #axes.set_ylim([-5,145])
     #axes.set_xlim([-5,50])
     axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/fractionReplies-pggc.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/fractionRequestsReceived-pggc.png')
     plt.cla()
     plt.close(fig)
 
@@ -1060,7 +1064,7 @@ def main():
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
     axes = plt.gca()
-    axes.set_ylim([-120,145])
+    axes.set_ylim([-250,250])
     axes.set_xlim([2.5,15])
     #axes.margins(0.05)
     plt.savefig(os.getcwd()+'/difi/all/variousValues/scrabbleScore-d2-d1.png')
@@ -1198,7 +1202,7 @@ def main():
     	user_letter.seek(0)
     	iscore=getInitialScore(uletter_reader,row[2])
     	letter_tran.seek(0)
-    	numrequestBack,score=getRequestsBack(ltran_reader,row[2])
+    	numrequestBack,score=getRepliesReceived(ltran_reader,row[2])
     	allscore=iscore+score
     	if session!=sessionb and sessionb!='' or idx==points-1:
     		#allsessions=allsessions+sessionb+'-'
@@ -1229,10 +1233,10 @@ def main():
     plt.yticks(fontsize=45)
     plt.title(allsessions,fontsize=45)
     axes = plt.gca()
-    axes.set_ylim([-120,145])
+    axes.set_ylim([-250,250])
     axes.set_xlim([4,21])
     #axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/scoreRLetters-d2-d1.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/scoreAllLetters-d2-d1.png')
     plt.cla()
     plt.close(fig)
     
@@ -1256,7 +1260,7 @@ def main():
     	user_letter.seek(0)
     	iscore=getInitialScore(uletter_reader,row[2])
     	letter_tran.seek(0)
-    	numrequestBack,score=getRequestsBack(ltran_reader,row[2])
+    	numrequestBack,score=getRepliesReceived(ltran_reader,row[2])
     	allscore=iscore+score
     	if session!=sessionb and sessionb!='' or idx==points-1:
     		#allsessions=allsessions+sessionb+'-'
@@ -1290,7 +1294,7 @@ def main():
     axes.set_ylim([-120,145])
     axes.set_xlim([4,21])
     #axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/scoreRLetters-d2.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/scoreAllLetters-d2.png')
     plt.cla()
     plt.close(fig)
     #####
@@ -1314,7 +1318,7 @@ def main():
     	user_letter.seek(0)
     	iscore=getInitialScore(uletter_reader,row[2])
     	letter_tran.seek(0)
-    	numrequestBack,score=getRequestsBack(ltran_reader,row[2])
+    	numrequestBack,score=getRepliesReceived(ltran_reader,row[2])
     	allscore=iscore+score
     	if session!=sessionb and sessionb!='' or idx==points-1:
     		#allsessions=allsessions+sessionb+'-'
@@ -1348,7 +1352,7 @@ def main():
     #axes.set_ylim([-5,145])
     #axes.set_xlim([-5,50])
     axes.margins(0.05)
-    plt.savefig(os.getcwd()+'/difi/all/variousValues/scoreRLetters-pggc.png')
+    plt.savefig(os.getcwd()+'/difi/all/variousValues/scoreAllLetters-pggc.png')
     plt.cla()
     plt.close(fig)
     ###

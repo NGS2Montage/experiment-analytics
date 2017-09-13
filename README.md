@@ -112,3 +112,49 @@ Output:
 2) delta time replies vs words+requests made by player
 3) delta time replies vs words made by player
 
+
+===Script Name: stackRequestsReplies.py===
+
+Input Example: 
+
+LetterTransactions.csv 
+UserLetters.csv
+sessionid
+endtime
+duration
+    
+python stackRequests.py  LetterTransactions.csv UserLetters.csv 7tbi6mwd 1502215375 304
+
+Output:
+1) timeline of request and replies sent during the session in active and passive actions
+
+===Script Name: anagramsTime.py===
+
+Input Example: 
+
+python anagramsTime.py CompletedSessionSummary.csv UserLetters.csv TimeSpent.csv
+
+Output:
+1) end and duration for anagrams game
+
+===Script Name: allDifis.py===
+
+Input Example: 
+
+python allDifis.py demographic.csv LetterTransactions.csv 7tbi6mwd
+
+Output:
+list of difis values for the two type of games to be used with allDifis.R file
+
+===Script Name: deltaPlot.py===
+
+Input Example: 
+
+python deltaPlot.py demographic.csv instructions_anagrams.csv anagrams.csv public_goods.csv 7tbi6mwd 1
+
+Output:
+list of difis values for the delta (reply time - requests time) to be used with deltaHistogram.R file
+
+
+
+
